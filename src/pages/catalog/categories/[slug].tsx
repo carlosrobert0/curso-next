@@ -35,7 +35,7 @@ export default function Category({ products }: CategoryProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const response = await fetch(`http://localhost:3333/categories`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/recommended`)
   const categories = await response.json()
 
   const paths = categories.map(category => {
